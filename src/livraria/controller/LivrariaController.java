@@ -39,6 +39,7 @@ public class LivrariaController implements LivrariaRepository {
 		var obras = buscarNaCollection(numero);
 
 		if (obras != null) {
+			listaObras.remove(obras);
 			String nome = obras.getNome();
 			System.out.println("\nO Livro: " + nome + " foi deletado com sucesso!");
 		} else
