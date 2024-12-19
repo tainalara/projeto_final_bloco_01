@@ -1,13 +1,13 @@
 package livraria.repository;
 
-import livraria.model.Livros;
+import livraria.model.Obras;
 
 public interface LivrariaRepository {
 
 	// CRUD Livraria
 	
-	public void cadastrar (Livros livro);
-	public void atualizar (Livros livro);
+	public void cadastrar (Obras livro);
+	public void atualizar (Obras livro);
 	public void deletar (String nome);
 	public void listarTodos();
 	

@@ -1,6 +1,6 @@
 package livraria.model;
 
-public abstract class Livros {
+public abstract class Obras {
 
 	// Atributos (variaveis)
 	private String nome;
@@ -11,7 +11,7 @@ public abstract class Livros {
 
 	// Método Construtor
 
-	public Livros(String nome, String autor, String categoria, int paginas, int tipoComercio) {
+	public Obras(String nome, String autor, String categoria, int paginas, int tipoComercio) {
 
 		this.nome = nome;
 		this.autor = autor;

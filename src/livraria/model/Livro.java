@@ -1,12 +1,12 @@
 package livraria.model;
 
-public class LivrosCompra  extends Livros {
+public class Livro  extends Obras {
 	
 	//Atributo
 	private float precoCompra;
 	
 	// Método Construtor	
-	public LivrosCompra (String nome, String autor, String categoria, int paginas, int tipoComercio, float precoCompra) {
+	public Livro (String nome, String autor, String categoria, int paginas, int tipoComercio, float precoCompra) {
 		
 		super(nome, autor, categoria, paginas, tipoComercio);
 		this.precoCompra = precoCompra;
