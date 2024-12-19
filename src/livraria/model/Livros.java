@@ -1,26 +1,28 @@
 package livraria.model;
 
 public abstract class Livros {
-	
-	//Atributos (variaveis)
+
+	// Atributos (variaveis)
 	private String nome;
 	private String autor;
 	private String categoria;
 	private int paginas;
-	
-	// Método Construtor 
-	
-	public Livros(String nome, String autor, String categoria, int paginas) {
-	
-	this.nome = nome;
-	this.autor = autor;
-	this.categoria = categoria;
-	this.paginas = paginas;
-	
+	private int tipoComercio;
+
+	// Método Construtor
+
+	public Livros(String nome, String autor, String categoria, int paginas, int tipoComercio) {
+
+		this.nome = nome;
+		this.autor = autor;
+		this.categoria = categoria;
+		this.paginas = paginas;
+		this.tipoComercio = tipoComercio;
+
 	}
-			
+
 	// Método de Acesso
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -52,9 +54,30 @@ public abstract class Livros {
 	public void setPaginas(int paginas) {
 		this.paginas = paginas;
 	}
-	
-	public void visualizar () {
-		
+
+	public int getTipoComercio() {
+		return tipoComercio;
+	}
+
+	public void setTipoComercio(int tipoComercio) {
+		this.tipoComercio = tipoComercio;
+	}
+
+	public void visualizar() {
+
+		String tipo = "";
+
+		switch (this.tipoComercio) {
+
+		case 1:
+			tipo = "Comprando";
+			break;
+
+		case 2:
+			tipo = "Alugando";
+			break;
+		}
+
 		System.out.println("\n\n***********************************************************");
 		System.out.println("Informações sobre o Livro:");
 		System.out.println("***********************************************************");
@@ -62,8 +85,8 @@ public abstract class Livros {
 		System.out.println("Autor(a) do Livro: " + this.autor);
 		System.out.println("Categoria do Livro: " + this.categoria);
 		System.out.println("Número de Páginas: " + this.paginas);
+		System.out.println("Você está: " + tipo + " este livro");
+
 	}
 
 }
-
-
