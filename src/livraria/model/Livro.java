@@ -6,9 +6,9 @@ public class Livro  extends Obras {
 	private float precoCompra;
 	
 	// Método Construtor	
-	public Livro (String nome, String autor, String categoria, int paginas, int tipoComercio, float precoCompra) {
+	public Livro (int numero, String nome, String autor, String categoria, int paginas, int tipoComercio, float precoCompra) {
 		
-		super(nome, autor, categoria, paginas, tipoComercio);
+		super(numero, nome, autor, categoria, paginas, tipoComercio);
 		this.precoCompra = precoCompra;
 		
 	}
@@ -25,7 +25,7 @@ public class Livro  extends Obras {
 	
 	public void visualizar () {
 		super.visualizar();
-		System.out.println("Este Livro custa (R$): " + this.precoCompra + "para compra");
+		System.out.println("Este Livro custa (R$): " + this.precoCompra + " para compra");
 	}
 	
 	

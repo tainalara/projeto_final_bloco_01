@@ -8,11 +8,13 @@ public abstract class Obras {
 	private String categoria;
 	private int paginas;
 	private int tipoComercio;
+	private int numero;
 
 	// Método Construtor
 
-	public Obras(String nome, String autor, String categoria, int paginas, int tipoComercio) {
+	public Obras(int numero, String nome, String autor, String categoria, int paginas, int tipoComercio) {
 
+		this.numero = numero;
 		this.nome = nome;
 		this.autor = autor;
 		this.categoria = categoria;
@@ -22,6 +24,14 @@ public abstract class Obras {
 	}
 
 	// Método de Acesso
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
 
 	public String getNome() {
 		return nome;
@@ -74,19 +84,19 @@ public abstract class Obras {
 			break;
 
 		case 2:
-			tipo = "Alugando";
+			tipo = "Alugando - ESTÁ OPÇÃO AINDA NÃO ESTÁ DISPONÍVEL";
 			break;
 		}
 
 		System.out.println("\n\n***********************************************************");
-		System.out.println("Informações sobre o Livro:");
+		System.out.println("Informaçãoes sobre a Obra:");
 		System.out.println("***********************************************************");
-		System.out.println("Nome do Livro: " + this.nome);
+		System.out.println("\nNome do Livro: " + this.nome);
 		System.out.println("Autor(a) do Livro: " + this.autor);
 		System.out.println("Categoria do Livro: " + this.categoria);
 		System.out.println("Número de Páginas: " + this.paginas);
 		System.out.println("Você está: " + tipo + " este livro");
-
+		System.out.println("Para ATUALIZAR ou DELETAR O LIVRO use o Número: " + this.numero);
 	}
 
 }
