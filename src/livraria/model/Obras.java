@@ -99,4 +99,9 @@ public abstract class Obras {
 		System.out.println("Para ATUALIZAR ou DELETAR O LIVRO use o Número: " + this.numero);
 	}
 
+	public void setPrecoCompra(float precoCompra) {
+
+		
+	}
+
 }

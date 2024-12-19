@@ -3,7 +3,6 @@ package livraria;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import conta.model.ContaCorrente;
 import livraria.controller.LivrariaController;
 import livraria.model.Livro;
 import livraria.util.Cores;

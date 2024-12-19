@@ -6,10 +6,10 @@ import livraria.model.Obras;
 import livraria.repository.LivrariaRepository;
 
 public class LivrariaController implements LivrariaRepository {
-	
-	private ArrayList <Obras> listaObras = new ArrayList<Obras>();
+
+	private ArrayList<Obras> listaObras = new ArrayList<Obras>();
 	int numero = 0;
-	
+
 	@Override
 	public void cadastrar(Obras livro) {
 		listaObras.add(livro);
@@ -19,10 +19,17 @@ public class LivrariaController implements LivrariaRepository {
 	@Override
 	public void atualizar(int numero, String nome2, String autor, String categoria, int paginas, int tipoComercio, float precoCompra) {
 		var obras = buscarNaCollection(numero);
-		
+
 		if (obras != null) {
-			String nome = obras.getNome();
-			System.out.println("\nO Livro: " + nome + " foi atualizado com sucesso!");
+			
+			obras.setNome(nome2);
+			obras.setAutor(autor);
+			obras.setCategoria(categoria);
+			obras.setPaginas(paginas);
+			obras.setTipoComercio(tipoComercio);
+			obras.setPrecoCompra (precoCompra);
+			
+			System.out.println("\nO Livro: " + nome2 + " foi atualizado com sucesso!");
 		} else
 			System.out.println("\nO Livro " + numero + " não foi encontrado!");
 	}
@@ -30,13 +37,13 @@ public class LivrariaController implements LivrariaRepository {
 	@Override
 	public void deletar(int numero) {
 		var obras = buscarNaCollection(numero);
-		
+
 		if (obras != null) {
 			String nome = obras.getNome();
 			System.out.println("\nO Livro: " + nome + " foi deletado com sucesso!");
 		} else
 			System.out.println("\nO Livro " + numero + " não foi encontrado!");
-		
+
 	}
 
 	@Override
@@ -46,12 +53,11 @@ public class LivrariaController implements LivrariaRepository {
 		}
 	}
 
-	
 	public int gerarNumero() {
-		return ++ numero;
+		return ++numero;
 	}
-	
-	public Obras buscarNaCollection (int numero) {
+
+	public Obras buscarNaCollection(int numero) {
 		for (var obras : listaObras) {
 			if (obras.getNumero() == numero) {
 				return obras;
@@ -60,9 +66,5 @@ public class LivrariaController implements LivrariaRepository {
 		return null;
 	}
 
-	@Override
-	public void atualizar(int numero) {
-		// TODO Auto-generated method stub
-		
 	}
-}
+
