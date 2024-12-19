@@ -17,6 +17,17 @@ public class LivrariaController implements LivrariaRepository {
 	}
 
 	@Override
+	public void atualizar(int numero, String nome2, String autor, String categoria, int paginas, int tipoComercio, float precoCompra) {
+		var obras = buscarNaCollection(numero);
+		
+		if (obras != null) {
+			String nome = obras.getNome();
+			System.out.println("\nO Livro: " + nome + " foi atualizado com sucesso!");
+		} else
+			System.out.println("\nO Livro " + numero + " não foi encontrado!");
+	}
+
+	@Override
 	public void deletar(int numero) {
 		var obras = buscarNaCollection(numero);
 		
@@ -47,5 +58,11 @@ public class LivrariaController implements LivrariaRepository {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public void atualizar(int numero) {
+		// TODO Auto-generated method stub
+		
 	}
 }

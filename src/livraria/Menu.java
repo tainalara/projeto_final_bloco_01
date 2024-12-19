@@ -3,6 +3,7 @@ package livraria;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import conta.model.ContaCorrente;
 import livraria.controller.LivrariaController;
 import livraria.model.Livro;
 import livraria.util.Cores;
@@ -29,7 +30,8 @@ public class Menu {
 			System.out.println("                                                         ");
 			System.out.println("             1 - Cadastrar Novo Livro                    ");
 			System.out.println("             2 - Listar Todos Os Livros do Estoque       ");
-			System.out.println("             3 - Apagar Livro do Estoque                 ");
+			System.out.println("             3 - Atualizar Dados do Livro                ");
+			System.out.println("             4 - Apagar Livro do Estoque                 ");
 			System.out.println("             9 - Sair                                    ");
 			System.out.println("                                                         ");
 			System.out.println("*********************************************************");
@@ -98,6 +100,52 @@ public class Menu {
 				break;
 
 			case 3:
+				System.out.println(Cores.TEXT_WHITE_BOLD + "Atualizar Dados do Livro \n\n");
+
+				System.out.println("Digite o número correspondente ao Livro que deseja atualizar: ");
+				numero = leia.nextInt();
+
+				if (obras.buscarNaCollection(numero) != null) {
+
+					System.out.println("Digite o Nome do Livro: ");
+					leia.skip("\\R?");
+					nome = leia.nextLine();
+					System.out.println("Digite o Nome do/da Autor(a) da Obra: ");
+					leia.skip("\\R?");
+					autor = leia.nextLine();
+					System.out.println("Digite a Categoria do Livro: ");
+					leia.skip("\\R?");
+					categoria = leia.nextLine();
+					System.out.println("Digite o Número de Páginas do Livro: ");
+					leia.skip("\\R?");
+					paginas = leia.nextInt();
+					
+					do {
+						System.out.println("Digite o Tipo de Transação que quer realizar: 1 - Comprar ou 2 - Alugar");
+						tipoComercio = leia.nextInt();
+					} while (tipoComercio < 1 && tipoComercio > 2);
+
+					switch (tipoComercio) {
+					case 1 -> {
+						System.out.println("Digite o valor para compra (R$): ");
+						precoCompra = leia.nextFloat();
+						obras.atualizar (numero, nome, autor, categoria, paginas, tipoComercio, precoCompra);
+
+					}
+					case 2 -> {
+						System.out.println("OPÇÃO INDISPONÍVEL");
+					
+					
+					System.out.println("\nO Livro foi atualizado com sucesso!");
+				} }}
+					else {
+
+					System.out.println("\nO Livro com o número " + numero + " não foi encontrado!");
+				}
+				
+				keyPress();
+				break;
+			case 4:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Apagar Livro do Estoque\n\n");
 
 				System.out.println("Digite o número correspondente ao Livro: ");
